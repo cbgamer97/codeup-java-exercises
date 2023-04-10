@@ -73,16 +73,22 @@ public class ControlFlowExercises {
 
         System.out.println("Enter a grade between 0 and 100.");
         int userGrade = scanner.nextInt();
-        
-        if (userGrade >= 88){
+
+        System.out.println("Do you want to continue? [Y/N]");
+        String placeHolder = scanner.nextLine();
+        String userContinue = scanner.nextLine();
+
+        boolean confirmation = userContinue.equalsIgnoreCase("y");
+
+        if (userGrade >= 88 && confirmation == true){
             System.out.println("A");
-        } else if (userGrade < 88 && userGrade >= 80) {
+        } else if (userGrade < 88 && userGrade >= 80 && confirmation == true) {
             System.out.println("B");
-        } else if (userGrade < 80 && userGrade >= 67) {
+        } else if (userGrade < 80 && userGrade >= 67 && confirmation == true) {
             System.out.println("C");
-        } else if (userGrade < 67 && userGrade >= 60) {
+        } else if (userGrade < 67 && userGrade >= 60 && confirmation == true) {
             System.out.println("D");
-        } else {
+        } else if (userGrade < 60 && confirmation == true) {
             System.out.println("F");
         }
 
