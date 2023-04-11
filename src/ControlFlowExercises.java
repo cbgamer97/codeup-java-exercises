@@ -14,10 +14,8 @@ public class ControlFlowExercises {
 
 //        int i = 0;
 //        do {
-//            if(i % 2 == 0) {
-//                System.out.println("i is " + i);
-//            }
-//            i++;
+//            System.out.println("i is " + i);
+//            i += 2;
 //        } while (i <= 100);
 
 //        int i = 100;
@@ -28,9 +26,9 @@ public class ControlFlowExercises {
 
 //        long i = 2;
 //        do {
-//            System.out.println(i * i);
-//            i++;
-//        } while (i <= 1000000);
+//            System.out.println(i);
+//            i*=i;
+//        } while (i < 1000000);
 
 //        for (int i = 5; i <= 15; i++){
 //            System.out.println("i is " + i);
@@ -46,49 +44,51 @@ public class ControlFlowExercises {
 //            System.out.println("i is " + i);
 //        }
 
-//        for (long i = 2; i < 1000000; i++){
-//            System.out.printf("i is %s%n", i * i);
+//        for (long i = 2; i < 1000000; i*=i){
+//            System.out.println(i);
 //        }
 
 //        for (int i = 1; i <= 100; i++) {
 //            if(i % 3 == 0 && i % 5 == 0) {
 //                System.out.println("Fizz Buzz " + i);
-//            } else if (i % 3 == 0){
+//              } else if (i % 5 == 0){
+////                System.out.println("Buzz" + i);
+////            } else if (i % 3 == 0){
 //                System.out.println("Fizz " + i);
-//            } else if (i % 5 == 0){
-//                System.out.println("Buzz" + i);
 //            }
 //        }
 
-//        fmt = new Formatter();
-//
-//        System.out.println("Enter a number!");
-//        int userNumber = scanner.nextInt();
-//
-//        for (int i = 0; i <= userNumber; i++){
-//            fmt.format("Number%3d Square%3d Cube%3d%n", i, i * i, i * i * i);
-//            System.out.println(fmt);
-//
-//        }
+
+        String choice = "y";
+//        choice = (choice.equalsIgnoreCase("y"))
+        System.out.println("Enter a number!");
+        int userNumber = scanner.nextInt();
+
+        System.out.println("Here is your table!");
+        System.out.println("number | squared | cubed");
+        System.out.println("------ | ------- | -----");
+
+        for (int i = 1; i <= userNumber; i++){
+            int squared = i * i;
+            int cubed = squared * i;
+            System.out.println(i + "      | " + squared + "       | " + cubed);
+        }
+        System.out.println("Do you want to continue? [Y/N]");
+        scanner.nextLine();
+        choice = scanner.nextLine();
 
         System.out.println("Enter a grade between 0 and 100.");
         int userGrade = scanner.nextInt();
 
-        System.out.println("Do you want to continue? [Y/N]");
-        String placeHolder = scanner.nextLine();
-        String userContinue = scanner.nextLine();
-
-        boolean confirmation = userContinue.equalsIgnoreCase("y");
-
-        if (userGrade >= 88 && confirmation == true){
+        if (userGrade >= 100 && userGrade >= 88){
             System.out.println("A");
-        } else if (userGrade < 88 && userGrade >= 80 && confirmation == true) {
+        } else if (userGrade < 88 && userGrade >= 80) {
             System.out.println("B");
-        } else if (userGrade < 80 && userGrade >= 67 && confirmation == true) {
+        } else if (userGrade < 80 && userGrade >= 67) {
             System.out.println("C");
-        } else if (userGrade < 67 && userGrade >= 60 && confirmation == true) {
+        } else if (userGrade < 67 && userGrade >= 60) {
             System.out.println("D");
-        } else if (userGrade < 60 && confirmation == true) {
+        } else if (userGrade < 60 && userNumber >= 0) {
             System.out.println("F");
         }
 
