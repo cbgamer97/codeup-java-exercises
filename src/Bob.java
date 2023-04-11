@@ -8,16 +8,20 @@ public class Bob {
         String fine = "Fine. Be that way!";
         String whatever = "Whatever";
 
-        System.out.println("Ask Bob a question!");
+        System.out.println("What would you like to say to Bob?");
         String userInput = scanner.nextLine();
-        if (userInput.endsWith("?")){
-            System.out.println(sure);
-        } else if (userInput.endsWith("!")) {
-            System.out.println(whoa);
-        } else if (userInput.trim().equals("")) {
-            System.out.println(fine);
-        } else {
-            System.out.println(whatever);
+        while(!userInput.isBlank()) {
+            if (userInput.endsWith("?")) {
+                System.out.println(sure);
+            } else if (userInput.endsWith("!")) {
+                System.out.println(whoa);
+            } else if (userInput.trim().equals("")) {
+                System.out.println(fine);
+                break;
+            } else {
+                System.out.println(whatever);
+            }
+            userInput = scanner.nextLine();
         }
     }
 }
