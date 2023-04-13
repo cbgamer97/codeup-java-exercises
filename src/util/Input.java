@@ -3,40 +3,50 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static String getString(){
-        System.out.println("Enter a sentence.");
-        String userInput = scanner.nextLine();
-        return userInput;
+    private Scanner scanner;
+    public Input(){
+        this.scanner = new Scanner(System.in);
     }
 
-    public static String yesNo(){
+    public String getString(){
+        System.out.println("Enter a sentence.");
+        return scanner.nextLine();
+    }
+
+    public String getString(String prompt){
+        System.out.println(prompt);
+        return scanner.nextLine();
+    }
+
+    public boolean yesNo(){
         System.out.println("Would you like to continue? [Y/N]");
         String userChoice = scanner.nextLine();
-        if (userChoice.trim().equalsIgnoreCase("y")) {
-            System.out.println("You chose yes, congratulations!");
-        } else {
-            yesNo();
-        }
-        return userChoice;
+        return userChoice.trim().equalsIgnoreCase("y") ||
+                userChoice.trim().equalsIgnoreCase("yes");
     }
 
-    public static int getInt(){
+    public boolean yesNo(String input) {
+        return input.trim().equalsIgnoreCase("y") || input.trim().equalsIgnoreCase("yes");
+    }
+
+    public int getInt(){
         System.out.println("Pick a number.");
         int num = scanner.nextInt();
         return num;
     }
 
-    public static int getInt(int min, int max){
+    public int getInt(int min, int max){
         System.out.printf("Pick a number between %d, and %d.%n", min, max);
         int userNumber = scanner.nextInt();
         if (userNumber >= min && userNumber <= max){
             return userNumber;
-        } else {
-            getInt(min, max);
         }
-        return userNumber;
+        return getInt(min, max);
+    }
+
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        return scanner.nextInt();
     }
 
     public static int getRandomInt(){
@@ -48,29 +58,32 @@ public class Input {
     public static int getRandomInt(int min, int max) {
         System.out.printf("Get a number between %d, and %d.%n", min, max);
         int randomNumber = (int) (Math.random() * max) + min;
-        if (randomNumber >= min && randomNumber <= max){
-            System.out.println("Here comes your number!");
-        } else {
-            getInt(min, max);
-        }
         return randomNumber;
     }
 
-    public static double getDouble(){
-        System.out.println("What number is your favorite?");
+    public double getDouble(){
+        System.out.println("Enter a number.");
         int num = scanner.nextInt();
         return num;
     }
 
 
-    public static double getDouble(double min, double max){
-        System.out.println("What is your number?");
-        int userNumber = scanner.nextInt();
+    public double getDouble(double min, double max){
+        System.out.printf("Enter a number between %.2f and %.2f.%n", min, max);
+        double userNumber = scanner.nextDouble();
         if (userNumber >= min && userNumber <= max){
             return userNumber;
-        } else {
-            getDouble(min, max);
         }
-        return userNumber;
+        return getDouble(min, max);
+    }
+
+    public double getDouble(String prompt){
+        System.out.println(prompt);
+        return scanner.nextDouble();
+    }
+
+    public void getGhost(){
+        System.out.println("");
+        String ghost = scanner.nextLine();
     }
 }
