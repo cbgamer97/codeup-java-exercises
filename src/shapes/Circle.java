@@ -3,19 +3,18 @@ package shapes;
 import java.util.Scanner;
 
 public class Circle {
-    private static double radius;
+    private double radius;
 
+    public Circle(double radius) {
+        this.radius = radius;
+    }
 
-
-    public static double getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public static void setRadius(double radius) {
-        Circle.radius = radius;
-    }
-    public Circle() {
-
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
     public double getArea(double radius){
