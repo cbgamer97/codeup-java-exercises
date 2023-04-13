@@ -11,14 +11,25 @@ public class Input {
         return userInput;
     }
 
-    public static boolean yesNo(){
-        System.out.println("Yes, or No?");
-        boolean userChoice = Boolean.parseBoolean(scanner.nextLine());
+    public static String yesNo(){
+        System.out.println("Would you like to continue? [Y/N]");
+        String userChoice = scanner.nextLine();
+        if (userChoice.trim().equalsIgnoreCase("y")) {
+            System.out.println("You chose yes, congratulations!");
+        } else {
+            yesNo();
+        }
         return userChoice;
     }
 
+    public static int getInt(){
+        System.out.println("Pick a number.");
+        int num = scanner.nextInt();
+        return num;
+    }
+
     public static int getInt(int min, int max){
-        System.out.println("What is your number?");
+        System.out.printf("Pick a number between %d, and %d.%n", min, max);
         int userNumber = scanner.nextInt();
         if (userNumber >= min && userNumber <= max){
             return userNumber;
@@ -28,11 +39,29 @@ public class Input {
         return userNumber;
     }
 
-    public static int getInt(){
+    public static int getRandomInt(){
+        int randomNumber = (int) (Math.random() * 100) + 1;
+        System.out.println("This method gives you a random number between 1 and 100.");
+        return randomNumber;
+    }
+
+    public static int getRandomInt(int min, int max) {
+        System.out.printf("Get a number between %d, and %d.%n", min, max);
+        int randomNumber = (int) (Math.random() * max) + min;
+        if (randomNumber >= min && randomNumber <= max){
+            System.out.println("Here comes your number!");
+        } else {
+            getInt(min, max);
+        }
+        return randomNumber;
+    }
+
+    public static double getDouble(){
         System.out.println("What number is your favorite?");
         int num = scanner.nextInt();
         return num;
     }
+
 
     public static double getDouble(double min, double max){
         System.out.println("What is your number?");
@@ -43,11 +72,5 @@ public class Input {
             getDouble(min, max);
         }
         return userNumber;
-    }
-
-    public static double getDouble(){
-        System.out.println("What number is your favorite?");
-        int num = scanner.nextInt();
-        return num;
     }
 }
