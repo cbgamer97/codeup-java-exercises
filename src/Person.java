@@ -2,26 +2,26 @@ import util.Input;
 
 public class Person {
     public static void main(String[] args) {
-        Person person1 = new Person();
-        Input input = new Input();
-        person1.setName(input.getString("What is your first name?"));
-        person1.setLastName(input.getString("What is your last name?"));
-        person1.setLocation(input.getString("Where are you from?"));
-        person1.sayHello();
+//        Person person1 = new Person();
+//        Input input = new Input();
+//        person1.setName();
+//        person1.setLastName(input.getString("What is your last name?"));
+//        person1.setLocation(input.getString("Where are you from?"));
+//        person1.sayHello();
     }
     private String firstName;
     private String lastName;
     private String location;
 
-    public String getName(String input) {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setName(String name) {
-        this.firstName = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastName(String input) {
+    public String getLastName() {
         return lastName;
     }
 
@@ -29,7 +29,7 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getLocation(String input) {
+    public String getLocation() {
         return location;
     }
 
@@ -37,11 +37,13 @@ public class Person {
         this.location = location;
     }
 
-    public Person(){
+    public Person() {
 
     }
 
-    public void sayHello(){
-        System.out.printf("Hello, %s %s. I loved visiting %s!%n", firstName, lastName, location);
+    public Person(String firstName, String lastName, String location) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.location = location;
     }
 }

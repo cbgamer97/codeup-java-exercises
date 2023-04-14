@@ -51,12 +51,10 @@ public class Input {
 
     public int getRandomInt(){
         int randomNumber = (int) (Math.random() * 100) + 1;
-        System.out.println("This method gives you a random number between 1 and 100.");
         return randomNumber;
     }
 
     public int getRandomInt(int min, int max) {
-        System.out.printf("Get a number between %d, and %d.%n", min, max);
         int randomNumber = (int) (Math.random() * max) + min;
         return randomNumber;
     }
