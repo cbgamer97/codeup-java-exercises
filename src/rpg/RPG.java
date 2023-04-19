@@ -3,6 +3,8 @@ package rpg;
 import Animals.Animal;
 import Animals.Quote;
 
+import java.util.ArrayList;
+
 public class RPG {
     public static void main(String[] args) {
         Fighter fighter1 = new Fighter();
@@ -24,5 +26,7 @@ public class RPG {
 //        System.out.println(d20Roll);
 
 
+        // collections
+        ArrayList<Monster> monsterList = new ArrayList<>();
     }
 }
