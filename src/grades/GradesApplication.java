@@ -33,9 +33,9 @@ public class GradesApplication {
 
         Map<String, Students> studentHashMap = new HashMap<>(studentsMap);
 
-//        studentsMap.forEach((name, students)->{
-//            System.out.printf("%s has a grade average of %s.%n", name, students.getGradeAverage());
-//        });
+        studentsMap.forEach((name, students)->{
+            System.out.printf("%s has a grade average of %s.%n", name, students.getGradeAverage());
+        });
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Would you like to see info on a student?");
