@@ -9,7 +9,7 @@ public class Input {
     }
 
     public String getString(){
-        System.out.println("Enter a sentence.");
+//        System.out.println("Enter a sentence.");
         return scanner.nextLine();
     }
 
@@ -31,8 +31,13 @@ public class Input {
 
     public int getInt(){
         System.out.println("Pick a number.");
-        int num = scanner.nextInt();
-        return num;
+        String s = getString();
+        try {
+            Integer.valueOf(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Integer.valueOf(s);
     }
 
     public int getInt(int min, int max){
@@ -60,9 +65,14 @@ public class Input {
     }
 
     public double getDouble(){
-        System.out.println("Enter a number.");
-        int num = scanner.nextInt();
-        return num;
+        System.out.println("Pick a number.");
+        String s = getString();
+        try {
+            Double.valueOf(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Double.valueOf(s);
     }
 
 

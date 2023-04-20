@@ -12,7 +12,7 @@ public class InputTest {
 //        System.out.println(Input.getInt());
 //        System.out.println(Input.getRandomInt(10, 500));
 
-
+        System.out.println(input.getInt());
 
 
     }
