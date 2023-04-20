@@ -36,17 +36,26 @@ public class Input {
             Integer.valueOf(s);
         } catch (Exception e) {
             e.printStackTrace();
+            getInt();
         }
-        return Integer.valueOf(s);
+        return Integer.parseInt(s);
     }
 
     public int getInt(int min, int max){
         System.out.printf("Pick a number between %d, and %d.%n", min, max);
-        int userNumber = scanner.nextInt();
+        String userInput = getString();
+        try {
+            Integer.valueOf(userInput);
+        }catch (NumberFormatException e){
+            System.out.println("You did not enter a number.");
+            getInt(min, max);
+        }
+        int userNumber = Integer.parseInt(userInput);
         if (userNumber >= min && userNumber <= max){
             return userNumber;
+        } else {
+            return getInt(min, max);
         }
-        return getInt(min, max);
     }
 
     public int getInt(String prompt){
@@ -71,8 +80,9 @@ public class Input {
             Double.valueOf(s);
         } catch (Exception e) {
             e.printStackTrace();
+            getDouble();
         }
-        return Double.valueOf(s);
+        return Double.parseDouble(s);
     }
 
 
@@ -93,5 +103,17 @@ public class Input {
     public void getGhost(){
         System.out.println("");
         String ghost = scanner.nextLine();
+    }
+
+    public double getBinary(){
+        System.out.println("Pick a number.");
+        String s = getString();
+        try {
+            Double.valueOf(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return Double.valueOf(s);
     }
 }
