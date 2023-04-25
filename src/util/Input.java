@@ -36,7 +36,7 @@ public class Input {
             Integer.valueOf(s);
         } catch (Exception e) {
             e.printStackTrace();
-            getInt();
+            return getInt();
         }
         return Integer.parseInt(s);
     }
@@ -48,7 +48,7 @@ public class Input {
             Integer.valueOf(userInput);
         }catch (NumberFormatException e){
             System.out.println("You did not enter a number.");
-            getInt(min, max);
+            return getInt(min, max);
         }
         int userNumber = Integer.parseInt(userInput);
         if (userNumber >= min && userNumber <= max){
@@ -80,7 +80,7 @@ public class Input {
             Double.valueOf(s);
         } catch (Exception e) {
             e.printStackTrace();
-            getDouble();
+            return getDouble();
         }
         return Double.parseDouble(s);
     }
